@@ -15,6 +15,8 @@ export class CreateSubjectComponent implements OnInit {
    //Forms
    generalForm: FormGroup;
    scheduleForm: FormGroup;
+   isOptional = false;
+
    //Schedule
    schedule: string = "";
    types = [1,2]

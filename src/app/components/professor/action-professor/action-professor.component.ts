@@ -16,6 +16,7 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class ActionProfessorComponent implements OnInit {
 
+  isOptional = false;
   subjectCtrl = new FormControl();
   separatorKeysCodes: number[] = [ENTER, COMMA];
   filteredSubjects: Observable<string[]>;

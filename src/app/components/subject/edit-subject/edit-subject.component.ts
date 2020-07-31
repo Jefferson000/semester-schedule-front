@@ -18,6 +18,8 @@ export class EditSubjectComponent implements OnInit {
   schedule: any;
   subjectType: any;
   types = [1,2]
+  isOptional = false;
+
 
    //Forms
    generalForm: FormGroup;

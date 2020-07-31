@@ -20,6 +20,7 @@ export class EditProfessorComponent implements OnInit {
   name: any;
   schedule: any;
   subject: any;
+  isOptional = false;
 
   subjectCtrl = new FormControl();
   separatorKeysCodes: number[] = [ENTER, COMMA];
