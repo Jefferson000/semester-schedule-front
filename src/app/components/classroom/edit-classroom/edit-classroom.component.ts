@@ -54,7 +54,7 @@ export class EditClassroomComponent implements OnInit {
     });
   }
 
-  editProfessor(){
+  onEditClassroom(){
     this._classroomService.UpdateClassroom(
       {
         classroom_id: this.id,
@@ -64,11 +64,11 @@ export class EditClassroomComponent implements OnInit {
       }
     ).subscribe(
       response => {
-          this._toast.success('', 'Professor Editado!');
-          this._router.navigate(['/main/professor']);
+          this._toast.success('', 'Aula Editada!');
+          this._router.navigate(['/main/classroom']);
       },error => {
-        this._toast.error('', 'Professor NO Editado :(');
-        this._router.navigate(['/main/professor']);
+        this._toast.error('', 'Aula NO Editada :(');
+        this._router.navigate(['/main/classroom']);
       });
   }
 
