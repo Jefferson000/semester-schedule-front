@@ -1,0 +1,59 @@
+<section class="content">
+  <div class="card">
+     <h2 class="title">Aulas</h2>
+    <div class="fila">
+      <div>
+        <button class="add-button"   mat-stroked-button (click)="onAddClassroom()" matTooltip="Agregar Profesor">
+          <mat-icon >add</mat-icon>
+        </button>
+      </div>
+    </div>
+    
+    
+    <mat-table mat-table [dataSource]="dataSource" class="table">
+    
+        <!-- name Column-->
+        <ng-container matColumnDef="number">
+            <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <label>{{element.number}}</label></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="classroomType">
+            <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <label>{{element.classroomType}}</label></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="capacity">
+            <mat-header-cell *matHeaderCellDef> Capacidad </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <label>{{element.capacity}}</label></mat-cell>
+        </ng-container>
+        
+
+        <!-- Option Column -->
+        <ng-container matColumnDef="option">
+            <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="options-row">
+              <div>
+                <button mat-stroked-button (click)="onSeeRestaurant(element)" class="see-button" matTooltip="Ver más información">
+                  <mat-icon>remove_red_eye</mat-icon>
+                </button>
+                <button mat-stroked-button  (click)="onEditClassroom(element)"class="edit-button" matTooltip="Editar Restaurante">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-stroked-button (click)="onDeleteClassroom(element.id)" class="delete-button" matTooltip="Eliminar Restaurante">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row">
+        </mat-row>
+    </mat-table>
+    <mat-paginator class="paginate" [pageSizeOptions]="[4, 8, 16]" showFirstLastButtons></mat-paginator>    
+  </div>
+</section>

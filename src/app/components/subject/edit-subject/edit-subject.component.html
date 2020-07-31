@@ -1,0 +1,507 @@
+<p>edit-subject works!</p>
+<p>create-subject works!</p>
+<section class="content">
+    
+
+    <h2 class="title">Editar una Materia</h2>
+    <mat-horizontal-stepper class="stepperJeff" linear #stepper>
+        <mat-step [stepControl]="generalForm"  [optional]="isOptional">
+          <form [formGroup]="generalForm">
+          <ng-template matStepLabel>Datos generales</ng-template>
+            <h4 class="title">Datos generales de la materia</h4>
+            <mat-form-field class="general-input">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>  
+            <mat-form-field class="general-input">
+                <mat-label>Semestre</mat-label>
+                <input type="number" matInput formControlName="semester" required>
+            </mat-form-field>
+            <mat-form-field class="general-input">
+                <mat-label>Créditos</mat-label>
+                <input type="number" matInput formControlName="credits" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="general-input">
+              <mat-label>Tipo de Materia</mat-label>
+              <mat-select  formControlName="subjectType">
+                <mat-option  *ngFor="let type of types" [value]="type">
+                  {{type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <div>
+            <button class="move-button"  mat-stroked-button (click)=nextStep() matTooltip="Siguiente">
+              <mat-icon class="move-button">arrow_forward</mat-icon>
+            </button>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="scheduleForm"  [optional]="isOptional">
+            <ng-template matStepLabel>Horario</ng-template>
+              <h4 class="title">Seleccion del horario</h4>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th class="thJeff">
+                      <span class="day">Lunes</span>
+                    </th>
+                    <th  class="thJeff">
+                      <span class="day">Martes</span>
+                    </th>
+                    <th  class="thJeff">
+                      <span class="day">Miércoles</span>
+                    </th>
+                    <th  class="thJeff">
+                      <span class="day">Jueves</span>
+                    </th>
+                    <th  class="thJeff">
+                      <span class="day">Viernes</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="hour" rowspan="1"><h4>7:00-7:55</h4></td>
+                    <td>
+                      <button id="001" class="button-table-selected"  hidden (click)="hide('001','002')">
+                        LM
+                      </button>
+                      <button id="002" class="button-table" (click)="hide('002','001')">
+                        LM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="101" class="button-table-selected" hidden (click)="hide('101','102')">
+                        KM
+                      </button>
+                      <button id="102" class="button-table" (click)="hide('102','101')">
+                        KM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="201" class="button-table-selected" hidden (click)="hide('201','202')">
+                        MM
+                      </button>
+                      <button id="202" class="button-table" (click)="hide('202','201')">
+                        MM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="301" class="button-table-selected" hidden (click)="hide('301','302')">
+                        JM
+                      </button>
+                      <button id="302" class="button-table" (click)="hide('302','301')">
+                        JM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="401" class="button-table-selected" hidden (click)="hide('401','402')">
+                        VM
+                      </button>
+                      <button id="402" class="button-table" (click)="hide('402','401')">
+                        VM
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="hour" rowspan="1"><h4>7:55-8:45</h4></td>
+                    <td>
+                      <button id="011" class="button-table-selected"  hidden (click)="hide('011','012')">
+                        LM
+                      </button>
+                      <button id="012" class="button-table" (click)="hide('012','011')">
+                        LM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="111" class="button-table-selected" hidden (click)="hide('111','112')">
+                        KM
+                      </button>
+                      <button id="112" class="button-table" (click)="hide('112','111')">
+                        KM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="211" class="button-table-selected" hidden (click)="hide('211','212')">
+                        MM
+                      </button>
+                      <button id="212" class="button-table" (click)="hide('212','211')">
+                        MM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="311" class="button-table-selected" hidden (click)="hide('311','312')">
+                        JM
+                      </button>
+                      <button id="312" class="button-table" (click)="hide('312','311')">
+                        JM
+                      </button>
+                    </td>
+                    <td>
+                      <button id="411" class="button-table-selected" hidden (click)="hide('411','412')">
+                        VM
+                      </button>
+                      <button id="412" class="button-table" (click)="hide('412','411')">
+                        VM
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="hour" rowspan="1"><h4>8:50-9:40</h4></td>
+                  <td>
+                    <button id="021" class="button-table-selected"  hidden (click)="hide('021','022')">
+                      LM
+                    </button>
+                    <button id="022" class="button-table" (click)="hide('022','021')">
+                      LM
+                    </button>
+                  </td>
+                  <td>
+                    <button id="121" class="button-table-selected" hidden (click)="hide('121','122')">
+                      KM
+                    </button>
+                    <button id="122" class="button-table" (click)="hide('122','121')">
+                      KM
+                    </button>
+                  </td>
+                  <td>
+                    <button id="221" class="button-table-selected" hidden (click)="hide('221','222')">
+                      MM
+                    </button>
+                    <button id="222" class="button-table" (click)="hide('222','221')">
+                      MM
+                    </button>
+                  </td>
+                  <td>
+                    <button id="321" class="button-table-selected" hidden (click)="hide('321','322')">
+                      JM
+                    </button>
+                    <button id="322" class="button-table" (click)="hide('322','321')">
+                      JM
+                    </button>
+                  </td>
+                  <td>
+                    <button id="421" class="button-table-selected" hidden (click)="hide('421','422')">
+                      VM
+                    </button>
+                    <button id="422" class="button-table" (click)="hide('422','421')">
+                      VM
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                <td class="hour" rowspan="1"><h4>9:45-10:35</h4></td>
+                <td>
+                  <button id="031" class="button-table-selected"  hidden (click)="hide('031','032')">
+                    LM
+                  </button>
+                  <button id="032" class="button-table" (click)="hide('032','031')">
+                    LM
+                  </button>
+                </td>
+                <td>
+                  <button id="131" class="button-table-selected" hidden (click)="hide('131','132')">
+                    KM
+                  </button>
+                  <button id="132" class="button-table" (click)="hide('132','131')">
+                    KM
+                  </button>
+                </td>
+                <td>
+                  <button id="231" class="button-table-selected" hidden (click)="hide('231','232')">
+                    MM
+                  </button>
+                  <button id="232" class="button-table" (click)="hide('232','231')">
+                    MM
+                  </button>
+                </td>
+                <td>
+                  <button id="331" class="button-table-selected" hidden (click)="hide('331','332')">
+                    JM
+                  </button>
+                  <button id="332" class="button-table" (click)="hide('332','331')">
+                    JM
+                  </button>
+                </td>
+                <td>
+                  <button id="431" class="button-table-selected" hidden (click)="hide('431','432')">
+                    VM
+                  </button>
+                  <button id="432" class="button-table" (click)="hide('432','431')">
+                    VM
+                  </button>
+                </td>
+              </tr>
+              <tr>
+              <td class="hour" rowspan="1"><h4>10:35-11:30</h4></td>
+              <td>
+                <button id="041" class="button-table-selected"  hidden (click)="hide('041','042')">
+                  LM
+                </button>
+                <button id="042" class="button-table" (click)="hide('042','041')">
+                  LM
+                </button>
+              </td>
+              <td>
+                <button id="141" class="button-table-selected" hidden (click)="hide('141','142')">
+                  KM
+                </button>
+                <button id="142" class="button-table" (click)="hide('142','141')">
+                  KM
+                </button>
+              </td>
+              <td>
+                <button id="241" class="button-table-selected" hidden (click)="hide('241','242')">
+                  MM
+                </button>
+                <button id="242" class="button-table" (click)="hide('242','241')">
+                  MM
+                </button>
+              </td>
+              <td>
+                <button id="341" class="button-table-selected" hidden (click)="hide('341','342')">
+                  JM
+                </button>
+                <button id="342" class="button-table" (click)="hide('342','341')">
+                  JM
+                </button>
+              </td>
+              <td>
+                <button id="441" class="button-table-selected" hidden (click)="hide('441','442')">
+                  VM
+                </button>
+                <button id="442" class="button-table" (click)="hide('442','441')">
+                  VM
+                </button>
+              </td>
+              </tr>
+              <tr>
+              <td class="hour" rowspan="1"><h4>12:30-1:15</h4></td>
+              <td>
+                <button id="051" class="button-table-selected"  hidden (click)="hide('051','052')">
+                  LT
+                </button>
+                <button id="052" class="button-table" (click)="hide('052','051')">
+                  LT
+                </button>
+              </td>
+              <td>
+                <button id="151" class="button-table-selected" hidden (click)="hide('151','152')">
+                  KT
+                </button>
+                <button id="152" class="button-table" (click)="hide('152','151')">
+                  KT
+                </button>
+              </td>
+              <td>
+                <button id="251" class="button-table-selected" hidden (click)="hide('251','252')">
+                  MT
+                </button>
+                <button id="252" class="button-table" (click)="hide('252','251')">
+                  MT
+                </button>
+              </td>
+              <td>
+                <button id="351" class="button-table-selected" hidden (click)="hide('351','352')">
+                  JT
+                </button>
+                <button id="352" class="button-table" (click)="hide('352','351')">
+                  JT
+                </button>
+              </td>
+              <td>
+                <button id="451" class="button-table-selected" hidden (click)="hide('451','452')">
+                  VT
+                </button>
+                <button id="452" class="button-table" (click)="hide('452','451')">
+                  VT
+                </button>
+              </td>
+            </tr>
+            <tr>
+            <td class="hour" rowspan="1"><h4>1:25-2:15</h4></td>
+            <td>
+              <button id="061" class="button-table-selected"  hidden (click)="hide('061','062')">
+                LT
+              </button>
+              <button id="062" class="button-table" (click)="hide('062','061')">
+                LT
+              </button>
+            </td>
+            <td>
+              <button id="161" class="button-table-selected" hidden (click)="hide('161','162')">
+                KT
+              </button>
+              <button id="162" class="button-table" (click)="hide('162','161')">
+                KT
+              </button>
+            </td>
+            <td>
+              <button id="261" class="button-table-selected" hidden (click)="hide('261','262')">
+                MT
+              </button>
+              <button id="262" class="button-table" (click)="hide('262','261')">
+                MT
+              </button>
+            </td>
+            <td>
+              <button id="361" class="button-table-selected" hidden (click)="hide('361','362')">
+                JT
+              </button>
+              <button id="362" class="button-table" (click)="hide('362','361')">
+                JT
+              </button>
+            </td>
+            <td>
+              <button id="461" class="button-table-selected" hidden (click)="hide('461','462')">
+                VT
+              </button>
+              <button id="462" class="button-table" (click)="hide('462','461')">
+                VT
+              </button>
+            </td>
+          </tr>
+          <tr>
+          <td class="hour" rowspan="1"><h4>2:30-3:15</h4></td>
+          <td>
+            <button id="071" class="button-table-selected"  hidden (click)="hide('071','072')">
+              LT
+            </button>
+            <button id="072" class="button-table" (click)="hide('072','071')">
+              LT
+            </button>
+          </td>
+            <td>
+              <button id="171" class="button-table-selected" hidden (click)="hide('171','172')">
+                KT
+              </button>
+              <button id="172" class="button-table" (click)="hide('172','171')">
+                KT
+              </button>
+            </td>
+            <td>
+              <button id="271" class="button-table-selected" hidden (click)="hide('271','272')">
+                MT
+              </button>
+              <button id="272" class="button-table" (click)="hide('272','271')">
+                MT
+              </button>
+            </td>
+            <td>
+              <button id="371" class="button-table-selected" hidden (click)="hide('371','372')">
+                JT
+              </button>
+              <button id="372" class="button-table" (click)="hide('372','371')">
+                JT
+              </button>
+            </td>
+            <td>
+              <button id="471" class="button-table-selected" hidden (click)="hide('471','472')">
+                VT
+              </button>
+              <button id="472" class="button-table" (click)="hide('472','471')">
+                VT
+              </button>
+            </td>
+          </tr>
+          <tr>
+          <td class="hour" rowspan="1"><h4>3:15-4:05</h4></td>
+          <td>
+            <button id="081" class="button-table-selected"  hidden (click)="hide('081','082')">
+              LT
+            </button>
+            <button id="082" class="button-table" (click)="hide('082','081')">
+              LT
+            </button>
+          </td>
+          <td>
+            <button id="181" class="button-table-selected" hidden (click)="hide('181','182')">
+              KT
+            </button>
+            <button id="182" class="button-table" (click)="hide('182','181')">
+              KT
+            </button>
+          </td>
+          <td>
+            <button id="281" class="button-table-selected" hidden (click)="hide('281','282')">
+              MT
+            </button>
+            <button id="282" class="button-table" (click)="hide('282','281')">
+              MT
+            </button>
+          </td>
+          <td>
+            <button id="381" class="button-table-selected" hidden (click)="hide('381','382')">
+              JT
+            </button>
+            <button id="382" class="button-table" (click)="hide('382','381')">
+              JT
+            </button>
+          </td>
+          <td>
+            <button id="481" class="button-table-selected" hidden (click)="hide('481','482')">
+              VT
+            </button>
+            <button id="482" class="button-table" (click)="hide('482','481')">
+              VT
+            </button>
+          </td>
+        </tr>
+        <tr>
+        <td class="hour" rowspan="1"><h4>4:05-5:30</h4></td>
+        <td>
+          <button id="091" class="button-table-selected"  hidden (click)="hide('091','092')">
+            LT
+          </button>
+          <button id="092" class="button-table" (click)="hide('092','091')">
+            LT
+          </button>
+        </td>
+        <td>
+          <button id="191" class="button-table-selected" hidden (click)="hide('191','192')">
+            KT
+          </button>
+          <button id="192" class="button-table" (click)="hide('192','191')">
+            KT
+          </button>
+        </td>
+        <td>
+          <button id="291" class="button-table-selected" hidden (click)="hide('291','292')">
+            MT
+          </button>
+          <button id="292" class="button-table" (click)="hide('292','291')">
+            MT
+          </button>
+        </td>
+        <td>
+          <button id="391" class="button-table-selected" hidden (click)="hide('391','392')">
+            JT
+          </button>
+          <button id="392" class="button-table" (click)="hide('392','391')">
+            JT
+          </button>
+        </td>
+        <td>
+          <button id="491" class="button-table-selected" hidden (click)="hide('491','492')">
+            VT
+          </button>
+          <button id="492" class="button-table" (click)="hide('492','491')">
+            VT
+          </button>
+        </td>
+      </tr>
+                </tbody>
+              </table>
+            <div>
+              <button class="move-button"  mat-stroked-button (click)=prevStep() matTooltip="Siguiente">
+                <mat-icon class="move-button">arrow_back</mat-icon>
+              </button>
+              <button class="edit-button" mat-stroked-button (click)="editSubject()" mat-stroked-button matTooltip="Editar Materia">
+                <mat-icon >edit</mat-icon>
+              </button>
+            </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </section>

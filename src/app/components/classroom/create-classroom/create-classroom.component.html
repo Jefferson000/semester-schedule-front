@@ -1,0 +1,27 @@
+<section class="content">
+    <h2 class="title">Crear un Aula</h2>
+
+    <div class="card">
+        <form [formGroup]="generalForm">
+          <mat-form-field class="general-input">
+              <mat-label>Capacidad</mat-label>
+              <input type="number" matInput formControlName="capacity" required>
+          </mat-form-field> 
+          <mat-form-field class="general-input">
+              <mat-label>Número</mat-label>
+              <input type="number" matInput formControlName="number" required>
+          </mat-form-field> 
+          <mat-form-field appearance="fill" class="general-input">
+            <mat-label>Tipo de aula</mat-label>
+            <mat-select  formControlName="classroomType">
+              <mat-option  *ngFor="let type of types" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <button class="add-button" mat-stroked-button (click)="onCreateClassroom()" mat-stroked-button matTooltip="Agregar Profesor">
+            <mat-icon >add</mat-icon>
+        </button>
+    </div>
+</section>

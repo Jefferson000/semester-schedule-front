@@ -1,0 +1,61 @@
+
+<div clas="superBackground">
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+  <!-- #END# Overlay For Sidebars -->
+
+  <!-- Top Bar -->
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+        <a href="javascript:void(0);" class="bars"></a>
+        <a class="navbar-brand" href="index.html">Proyecto Lenguajes</a>
+      </div>
+    </div>
+  </nav>
+  <!-- #Top Bar -->
+
+  <section class="sectionJeff">
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+      <!-- User Info -->
+      <div class="user-info">
+        <div class="info-container">
+          <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jefferson Torres</div>
+          <div class="email">torres.hernandez.jefferson@gmail.com</div>
+          
+        </div>
+      </div>
+      <!-- #User Info -->
+      <!-- Menu -->
+      <div class="menu">
+        <ul class="list" style="color: white; background-color: #1c1c1c;">
+          <li class="headerJeff">Menu</li>
+          <li class="active" *ngFor="let innerRoute of innerRoutes" >
+            <a routerLink="{{innerRoute.path}}" routerLinkActive=actived>
+              <i style="color: rgb(197, 197, 197)" class="material-icons">{{innerRoute.icon}}</i>
+              <span style="color: rgb(197, 197, 197)">{{innerRoute.name}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- #Menu -->
+      <!-- Footer -->
+      <div class="legal section" style="background-color: #1c1c1c; color:white">
+        <div class="copyright">
+          &copy; 2020 - 2020    Proyecto-Lenguajes.
+        </div>
+        <div class="version">
+          <b >Version: </b> 1.0.0
+        </div>
+      </div>
+      <!-- #Footer -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+
+  </section>
+  <div #mainDiv >
+    <router-outlet style="background-color: #1c1c1c;"></router-outlet>
+  </div>
+</div>

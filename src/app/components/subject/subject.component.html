@@ -1,0 +1,65 @@
+<section class="content">
+  <div class="card">
+  <h2 class="title">Materias</h2>
+  <div class="fila">
+    <div>
+      <button  mat-stroked-button  class="add-button" (click)="onCreateSubject()" matTooltip="Agregar Profesor">
+        <mat-icon >add</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+  
+  <mat-table mat-table [dataSource]="dataSource" class="table">
+  
+      <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <label>{{element.name}}</label></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="credits">
+          <mat-header-cell *matHeaderCellDef> Créditos </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <label>{{element.credits}}</label></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="semester">
+          <mat-header-cell *matHeaderCellDef> Semestre </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <label>{{element.semester}}</label></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="subjetType">
+          <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <label>{{element.subjectType}}</label></mat-cell>
+      </ng-container>
+      
+      
+
+      <!-- Option Column -->
+      <ng-container matColumnDef="option">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="options-row">
+            <div>
+              <button mat-stroked-button class="see-button" matTooltip="Ver más información">
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+              <button mat-stroked-button  (click)="onEditSubject(element)"class="edit-button" matTooltip="Editar Restaurante">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-stroked-button (click)="onDeleteSubject(element.id)" class="delete-button" matTooltip="Eliminar Restaurante">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row">
+      </mat-row>
+  </mat-table>
+  <mat-paginator class="paginate"  [pageSizeOptions]="[4, 8, 16]" showFirstLastButtons></mat-paginator>
+  </div>
+</section>

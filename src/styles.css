@@ -1,0 +1,26 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root{
+    --primary: #1c1c1c;
+    --accent: #0288d1;
+    --warn: #f44336;
+}
+
+.mat-icon-button.large {
+
+    width: 68px;
+    height: 68px;
+    line-height: 68px;
+
+    
+}
+
+.mat-icon-button.large .mat-icon {
+      font-size: 58px;
+      width: 58px;
+      height: 58px;
+      line-height: 58px;
+}

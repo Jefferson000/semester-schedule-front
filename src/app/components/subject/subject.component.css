@@ -1,0 +1,51 @@
+.edit-button {
+    color: goldenrod;
+}
+.delete-button{
+    color: rgb(160, 0, 0);
+}
+.add-button{
+    color: rgb(97, 214, 87);
+    margin-left: 47%;
+}
+.see-button{
+    color: rgb(87, 178, 214);
+}
+.table-container {
+    overflow: auto;
+}
+.fila div{
+    display: inline;
+}
+
+.paginate{
+    width: 80%;
+    justify-content: center;
+    margin-left: 10%;
+}
+/*-----------------Created by Waltter-----------------*/
+.table{
+    width: 100%;
+    margin: 0 7.5%;
+    width: 85%;
+}
+
+.filter-input{
+    margin: 30px 10% 20px 10%;
+    width: 70%;
+}
+
+.title{
+    text-align: center;
+    color: var(--primary);
+}
+
+.options-row div{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.options-row button{
+    margin: 0 2px
+}

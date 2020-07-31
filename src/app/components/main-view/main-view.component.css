@@ -1,0 +1,181 @@
+.container-fluid{
+    background-color: #1c1c1c;
+}
+
+.sectionJeff{
+    background-color: #1c1c1c;
+}
+
+.colorW{
+    color: white;
+}
+
+.headerJeff{
+    background-color: #000000;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.activeJeff{
+    background-color: #000000;
+    color: white; 
+}
+
+.superBackground{
+    background-color: rgb(70, 70, 70);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.is-mobile .toolbar {
+    position: fixed;
+    z-index: 2;
+}
+
+.toolbar, .toolbar div{
+    display: flex;
+    overflow: hidden;
+}
+
+.toolbar{
+    justify-content: space-between;
+}
+
+.toolbar label{
+    margin: auto 10px auto 0;
+    font-size: 15px;
+}
+
+h1.title {
+    font-size: 17px;
+    margin: auto 0 auto 8px
+}
+
+.sidenav-container {
+    flex: 1;
+}
+
+.sidenav-container mat-sidenav{
+    min-width: 250px;
+}
+
+.is-mobile .sidenav-container {
+    flex: 1 0 auto;
+}
+
+.main{
+    background-color: rgb(243, 243, 243);
+    display: flex;
+}
+
+.main div{
+    width: calc(92% - 2rem);
+    margin: 30px auto;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+    height: fit-content;
+}
+
+.user-is-mobile{
+    color: rgb(70, 70, 70);
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 0.5px solid rgb(224, 224, 224);
+}
+
+.user-is-mobile b{
+    color: var(--primary);
+    font-weight: 100;
+}
+
+.user-is-mobile button, .user-is-mobile label{
+    margin: auto 0 auto 8px;
+    text-align: end;
+}
+
+.user-info label{
+    line-height: normal;
+    text-align: end;
+}
+
+.user-info label b{
+    font-weight: 100;
+}
+
+.menu-title{
+    display: flex; 
+    justify-content: center; 
+    background-color: rgb(236, 236, 236);
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(85, 85, 85);
+}
+
+.item{
+    color: rgb(87, 87, 87);
+    border-radius: 23px;
+}
+
+.item{
+    border-radius: 23px;
+}
+
+mat-nav-list mat-icon{
+    margin-right: 16px;
+}
+
+.nav-container{
+    height: calc(100% - 142px);
+    overflow-y: auto;
+}
+
+@media (min-width: 600px){
+    .nav-container{
+        height: calc(100% - 71px);
+    }
+}
+
+.about-container{
+    height: 70px;
+    font-size: 11px;
+    color: rgb(70, 70, 70);
+    display: flex;
+    flex-direction: column;
+}
+
+.about-container a:first-child{
+    margin: auto auto 5px auto;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.about-container a:first-child:hover{
+    text-decoration: underline;
+}
+
+.about-container a:not(:first-child){
+    margin: 5px auto auto auto;
+    color:gray;
+    font-weight: 700;
+}
+
+mat-nav-list a.active{
+    background-color: rgb(241, 241, 241);
+    color: var(--primary) !important;
+    font-weight: 500;
+}

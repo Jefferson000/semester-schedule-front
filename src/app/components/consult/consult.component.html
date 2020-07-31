@@ -1,0 +1,47 @@
+<section class="content">
+    <div class="card">
+        <h1>Asociación de profesores por semestre a cursos</h1>
+
+
+        <form [formGroup]="generalForm">
+            <div class="inline">
+                <h4 class="title">Inserte semestre a consultar</h4>
+                <mat-form-field class="general-input">
+                    <mat-label>Semestre</mat-label>
+                    <input matInput type="number" formControlName="semester"  required>
+                </mat-form-field>  
+                <button class="consult-button" mat-stroked-button  (click)="getFirstConsult()" matTooltip="Consultar">
+                    <mat-icon>done</mat-icon>
+                </button> 
+            </div>
+        </form>
+    
+    
+        <mat-table mat-table [dataSource]="dataSource" class="table">
+        
+            <!-- name Column-->
+            <ng-container matColumnDef="professor">
+                <mat-header-cell *matHeaderCellDef> Profesor </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <label>{{element.professor.name}}</label></mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="subject">
+                <mat-header-cell *matHeaderCellDef> Materias </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <label>{{getValidation(element.subject)}}</label></mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="semester">
+                <mat-header-cell *matHeaderCellDef> Semestre </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <label>{{getValidation(element.semester)}}</label></mat-cell>
+            </ng-container>
+            
+            <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row">
+            </mat-row>
+        </mat-table>
+        <mat-paginator class="paginate"  [pageSizeOptions]="[4, 8, 16]" showFirstLastButtons></mat-paginator>    
+    </div>
+</section>
